@@ -1,0 +1,90 @@
+/* =================================
+   AI CCTV PROFESSIONAL UI THEME
+================================= */
+
+html, body, [class*="css"] {
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+/* Main Background */
+
+.stApp {
+
+    background-color: #0F172A;
+
+    color: #F8FAFC;
+
+}
+
+
+
+/* Sidebar */
+
+section[data-testid="stSidebar"] {
+
+    background-color: #111827;
+
+    border-right: 1px solid #334155;
+
+}
+
+
+
+/* Titles */
+
+h1, h2, h3 {
+
+    color: #F8FAFC;
+
+    font-weight: 600;
+
+}
+
+
+
+/* Normal Text */
+
+p, label {
+
+    color: #CBD5E1;
+
+}
+
+
+
+/* Remove extra top padding */
+
+.block-container {
+
+    padding-top: 2rem;
+
+    padding-bottom: 2rem;
+
+}
+
+
+
+/* File uploader */
+
+[data-testid="stFileUploader"] {
+
+    background-color: #1E293B;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+}
+
+
+
+/* Slider */
+
+.stSlider {
+
+    color: #2563EB;
+
+}
