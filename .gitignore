@@ -1,25 +1,12 @@
-# Python virtual environment
+# Virtual environment
 venv/
 
 # Python cache
 __pycache__/
 *.py[cod]
 
-# Environment / secrets
-.env
-.env.*
-
-# Generated files
+# Generated outputs
 outputs/
-runs/
 
-# IDE files
-.vscode/
-.idea/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Large YOLO model - do not upload to GitHub
+# YOLO model files
 yolov8x.pt
