@@ -1,364 +1,251 @@
-\# 🚀 AI CCTV People Counting \& Detection System
+# AI CCTV People Counting & Detection System
 
+## Overview
 
+AI CCTV People Counting & Detection System is a computer vision application developed using Python, YOLOv8, and Streamlit for detecting and counting people from images, uploaded videos, and live webcam input.
 
-> An AI-powered CCTV surveillance and people-counting system built with \*\*YOLOv8\*\* and \*\*Python\*\*, designed for real-time detection, counting, and visual monitoring through image, video, and webcam inputs.
+## Problem Statement
 
+Manual CCTV monitoring requires continuous observation and makes people counting difficult when processing large amounts of visual data.
 
+This project uses AI-based object detection to automatically detect and count people from different visual inputs.
 
-\## 📌 Overview
+## Objective
 
+- Detect people from images, videos, and webcam streams
+- Automatically count detected people
+- Provide visual detection results
+- Support configurable detection settings
+- Generate processed video results
+- Provide an interactive Streamlit interface
 
+## Key Features
 
-\*\*AI CCTV People Counting\*\* is an intelligent computer vision application that uses the YOLOv8 object detection model to identify and count people from different video sources.
+- YOLOv8-based person detection
+- People counting
+- Image detection
+- Video detection
+- Live webcam detection
+- Configurable confidence threshold
+- Configurable image size for image detection
+- Bounding-box visualization
+- Processing-time measurement
+- Maximum people count during video processing
+- Live people count during webcam detection
+- Downloadable image results
+- Downloadable processed videos
+- CUDA GPU acceleration when available
+- CPU fallback when CUDA is unavailable
 
+## Technology Stack
 
+| Technology | Purpose |
+|---|---|
+| Python | Application development |
+| YOLOv8 | Person detection |
+| Ultralytics | YOLO model implementation |
+| PyTorch | Model inference and GPU acceleration |
+| OpenCV | Image and video processing |
+| Streamlit | Web application interface |
+| NumPy | Image processing |
+| Pillow | Image handling |
+| FFmpeg | Video conversion |
 
-The project provides a user-friendly interface for analyzing images, uploaded videos, and live webcam feeds, making it suitable for applications such as smart surveillance, crowd monitoring, occupancy analysis, and security systems.
-
-
-
-\## ✨ Features
-
-
-
-\* 🎯 Real-time person detection using YOLOv8
-
-\* 👥 Automatic people counting
-
-\* 🖼️ Image-based detection
-
-\* 🎥 Video-based detection
-
-\* 📹 Live webcam detection
-
-\* 📊 Detection and monitoring dashboard
-
-\* 🎨 Custom user interface
-
-\* ⚙️ Configurable application settings
-
-\* 📈 Detection results and reports
-
-\* 🧩 Modular project architecture
-
-
-
-\## 🛠️ Technologies Used
-
-
-
-| Technology    | Purpose                               |
-
-| ------------- | ------------------------------------- |
-
-| \*\*Python\*\*    | Core programming language             |
-
-| \*\*YOLOv8\*\*    | Object detection and people counting  |
-
-| \*\*OpenCV\*\*    | Image and video processing            |
-
-| \*\*Streamlit\*\* | Interactive web application interface |
-
-| \*\*NumPy\*\*     | Numerical and array operations        |
-
-| \*\*Pandas\*\*    | Data processing and analysis          |
-
-| \*\*Pillow\*\*    | Image processing                      |
-
-
-
-\## 🧠 How It Works
-
-
+## System Architecture
 
 ```text
-
-Input Source
-
-&#x20;    │
-
-&#x20;    ├── Image
-
-&#x20;    ├── Video
-
-&#x20;    └── Webcam
-
-&#x20;         │
-
-&#x20;         ▼
-
-&#x20;    YOLOv8 Model
-
-&#x20;         │
-
-&#x20;         ▼
-
-&#x20;  Person Detection
-
-&#x20;         │
-
-&#x20;         ▼
-
-&#x20;   People Counting
-
-&#x20;         │
-
-&#x20;         ▼
-
-&#x20;Visualization \& Reports
-
+Input Sources
+     |
+     +----------+----------+
+     |          |          |
+   Image      Video      Webcam
+     |          |          |
+     +----------+----------+
+                |
+                v
+         Input Processing
+                |
+                v
+           YOLOv8x Model
+                |
+                v
+         Person Detection
+                |
+                v
+          People Counting
+                |
+                v
+       Result Visualization
+                |
+                v
+        Streamlit Interface
 ```
 
+## Model Used
 
+The project uses the YOLOv8x object detection model from Ultralytics.
 
-\## 📂 Project Structure
+The model is configured to detect the person class and is used for image, video, and webcam detection.
 
+### Model Configuration
 
+- Model: YOLOv8x
+- Detection class: Person
+- Confidence threshold: Configurable
+- IoU threshold: 0.45
+- Image detection resolution: Configurable
+- GPU acceleration: CUDA supported when available
+- CPU fallback: Supported when CUDA is unavailable
+
+The application expects the `yolov8x.pt` model file in the project root directory. The model is not included in the repository because of its large file size.
+
+## Methodology
+
+1. Input is provided through an image upload, video upload, or webcam.
+2. The input is processed using OpenCV and image-processing libraries.
+3. YOLOv8x performs object detection.
+4. The person class is selected for detection.
+5. Detected bounding boxes are obtained from the model output.
+6. The number of detected people is calculated.
+7. Detection results are displayed with bounding boxes.
+8. Image results can be saved and downloaded.
+9. Video frames are processed sequentially to generate an annotated video.
+10. Webcam frames are processed continuously to display the current people count.
+
+## Project Structure
 
 ```text
-
-AI\_CCTV\_People\_Counting/
-
-│
-
-├── assets/                 # Images and application assets
-
-├── components/             # Reusable UI components
-
-├── models/                 # YOLO model-related code
-
-├── styles/                 # Application styling and themes
-
-├── utils/                  # Utility and video-processing functions
-
-├── views/                  # Application pages and detection modules
-
-│
-
-├── app.py                  # Main application entry point
-
-├── requirements.txt        # Python dependencies
-
-├── yolov8n.pt              # YOLOv8 detection model
-
-├── .gitignore              # Git ignored files
-
-└── README.md               # Project documentation
-
+AI_CCTV_People_Counting/
+|
++-- assets/
++-- components/
++-- models/
++-- styles/
++-- utils/
++-- views/
+|
++-- app.py
++-- requirements.txt
++-- .gitignore
++-- README.md
 ```
 
+## Installation
 
-
-\## ⚙️ Installation
-
-
-
-\### 1. Clone the repository
-
-
+### 1. Clone the Repository
 
 ```bash
-
-git clone https://github.com/ElakiyaRamajayam/AI\_CCTV\_People\_Counting.git
-
-cd AI\_CCTV\_People\_Counting
-
+git clone https://github.com/ElakiyaRamajayam/AI_CCTV_People_Counting.git
+cd AI_CCTV_People_Counting
 ```
 
-
-
-\### 2. Create a virtual environment
-
-
+### 2. Create a Virtual Environment
 
 ```bash
-
 python -m venv venv
-
 ```
 
+### 3. Activate the Virtual Environment
 
-
-\### 3. Activate the virtual environment
-
-
-
-\*\*Windows:\*\*
-
-
+Windows:
 
 ```bash
-
-venv\\Scripts\\activate
-
+venv\Scripts\activate
 ```
 
-
-
-\*\*Linux / macOS:\*\*
-
-
+### 4. Install Dependencies
 
 ```bash
-
-source venv/bin/activate
-
-```
-
-
-
-\### 4. Install dependencies
-
-
-
-```bash
-
 pip install -r requirements.txt
-
 ```
 
+### 5. Add the YOLOv8x Model
 
+Place the required model file in the project root:
 
-\## ▶️ Run the Application
+```text
+yolov8x.pt
+```
 
+The model file is not included in the repository because of its large size.
 
+### 6. Install FFmpeg
 
-Start the application with:
+FFmpeg is required for video processing and conversion.
 
+Make sure `ffmpeg` is available through the system PATH.
 
+## Running the Application
+
+Start the application using:
 
 ```bash
-
 streamlit run app.py
-
 ```
 
+The application provides the following sections:
 
+- Dashboard
+- Image Detection
+- Video Detection
+- Live Camera
+- Reports
+- Settings
 
-Then open the local URL provided by Streamlit in your browser.
+The Reports section is currently under development.
 
+## Results
 
+The system provides:
 
-\## 📸 Application
+- People count for uploaded images
+- Annotated image detection results
+- Current people count from webcam input
+- Maximum people count during video processing
+- Annotated processed video output
+- Detection confidence information
+- Processing time information
 
+## Challenges
 
+- Efficient processing of video frames
+- Maintaining performance during live webcam detection
+- Managing GPU and CPU inference
+- Supporting multiple video formats
+- Converting processed videos into browser-compatible formats
+- Managing large YOLO model files
 
-The application provides different detection modes for analyzing:
+## Future Enhancements
 
+- Improve detection performance
+- Enhance dashboard statistics
+- Complete the reports module
+- Improve result visualization
+- Add advanced detection analytics
+- Optimize video and webcam processing
 
+## Demo / Screenshots
 
-\* 🖼️ Images
+Screenshots of the application and detection results can be added here.
 
-\* 🎥 Video files
+### Dashboard
 
-\* 📹 Live webcam streams
+Add dashboard screenshot here.
 
+### Image Detection
 
+Add image detection screenshot here.
 
-You can add screenshots of the application here to showcase the interface and detection results.
+### Video Detection
 
+Add video detection screenshot here.
 
+### Live Camera
 
-\## 🤖 YOLOv8
+Add live camera screenshot here.
 
+## Author
 
+**Elakiya Ramajayam**
 
-This project uses \*\*YOLOv8\*\* for object detection and people counting.
-
-
-
-The lightweight `yolov8n.pt` model is included in the repository for convenience.
-
-
-
-The larger `yolov8x.pt` model is not included because of GitHub's file-size limitations.
-
-
-
-\## 🎯 Use Cases
-
-
-
-This system can be adapted for:
-
-
-
-\* 🏢 Office occupancy monitoring
-
-\* 🛍️ Retail store analytics
-
-\* 🚪 Entry and exit monitoring
-
-\* 🏫 Crowd monitoring
-
-\* 🏭 Workplace safety monitoring
-
-\* 🎥 Smart CCTV systems
-
-\* 📊 People-flow analysis
-
-
-
-\## 🔮 Future Improvements
-
-
-
-Potential improvements include:
-
-
-
-\* \[ ] Multi-camera CCTV support
-
-\* \[ ] Real-time alerts and notifications
-
-\* \[ ] Advanced crowd-density analysis
-
-\* \[ ] Person tracking across frames
-
-\* \[ ] Database integration
-
-\* \[ ] Historical analytics
-
-\* \[ ] Cloud deployment
-
-\* \[ ] Automated report generation
-
-\* \[ ] Improved model accuracy
-
-
-
-\## 📋 Requirements
-
-
-
-\* Python 3.x
-
-\* Webcam (for live detection)
-
-\* Windows / Linux / macOS
-
-\* Internet connection for installing dependencies
-
-
-
-\## 👩‍💻 Author
-
-
-
-\*\*Elakiya Ramajayam\*\*
-
-
-
-Developed as an AI/computer-vision project focused on intelligent CCTV monitoring, object detection, and people counting.
-
-
-
-\---
-
-
-
-⭐ \*\*If you find this project useful, consider giving it a star on GitHub!\*\*
-
-
-
+AI and Computer Vision Project
