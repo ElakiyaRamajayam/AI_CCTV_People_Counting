@@ -226,19 +226,17 @@ The system provides:
 
 ## Demo / Screenshots
 
-Screenshots of the application and detection results can be added here.
-
 ### Dashboard
 
-![Dashboard].(assets/Dashboard.png)
+![Dashboard](./assets/Dashboard.png)
 
 ### Image Detection
 
-![Image_Detection](assets/Image_Detection.png)
+![Image Detection](./assets/Image_Detection.png)
 
 ### Video Detection
 
-Add video detection screenshot here.
+![Video Detection](./assets/Video_Detection.png)
 
 ## Author
 
