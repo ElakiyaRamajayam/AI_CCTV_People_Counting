@@ -238,6 +238,10 @@ The system provides:
 
 ![Video Detection](./assets/Video_Detection.png)
 
+### Live Camera
+
+![Live Camera](./assets/Live_Camera.png)
+
 ## Author
 
 **Elakiya R**
