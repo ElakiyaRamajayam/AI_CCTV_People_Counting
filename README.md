@@ -66,7 +66,7 @@ Input Sources
          Input Processing
                 |
                 v
-           YOLOv8x Model
+           YOLOv8n Model
                 |
                 v
          Person Detection
@@ -83,13 +83,13 @@ Input Sources
 
 ## Model Used
 
-The project uses the YOLOv8x object detection model from Ultralytics.
+The project uses the YOLOv8n object detection model from Ultralytics.
 
 The model is configured to detect the person class and is used for image, video, and webcam detection.
 
 ### Model Configuration
 
-- Model: YOLOv8x
+- Model: YOLOv8n
 - Detection class: Person
 - Confidence threshold: Configurable
 - IoU threshold: 0.45
@@ -97,13 +97,13 @@ The model is configured to detect the person class and is used for image, video,
 - GPU acceleration: CUDA supported when available
 - CPU fallback: Supported when CUDA is unavailable
 
-The application expects the `yolov8x.pt` model file in the project root directory. The model is not included in the repository because of its large file size.
+The application expects the `YOLOv8n.pt` model file in the project root directory. The model is not included in the repository because of its large file size.
 
 ## Methodology
 
 1. Input is provided through an image upload, video upload, or webcam.
 2. The input is processed using OpenCV and image-processing libraries.
-3. YOLOv8x performs object detection.
+3. YOLOv8n performs object detection.
 4. The person class is selected for detection.
 5. Detected bounding boxes are obtained from the model output.
 6. The number of detected people is calculated.
@@ -159,12 +159,12 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 5. Add the YOLOv8x Model
+### 5. Add the YOLOv8n Model
 
 Place the required model file in the project root:
 
 ```text
-yolov8x.pt
+YOLOv8n.pt
 ```
 
 The model file is not included in the repository because of its large size.
@@ -246,6 +246,6 @@ Add live camera screenshot here.
 
 ## Author
 
-**Elakiya Ramajayam**
+**Elakiya R**
 
 AI and Computer Vision Project
