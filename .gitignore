@@ -9,4 +9,4 @@ __pycache__/
 outputs/
 
 # YOLO model files
-yolov8x.pt
+*.pt
