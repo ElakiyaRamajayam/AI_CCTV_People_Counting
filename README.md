@@ -230,7 +230,7 @@ Screenshots of the application and detection results can be added here.
 
 ### Dashboard
 
-Add dashboard screenshot here.
+![Dashboard].(assets/Dashboard.png)
 
 ### Image Detection
 
@@ -239,10 +239,6 @@ Add dashboard screenshot here.
 ### Video Detection
 
 Add video detection screenshot here.
-
-### Live Camera
-
-Add live camera screenshot here.
 
 ## Author
 
