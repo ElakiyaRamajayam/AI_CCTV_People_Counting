@@ -1,7 +1,6 @@
 import streamlit as st
 
 from components.sidebar import create_sidebar
-
 from views.dashboard import dashboard
 from views.image_detection import image_detection
 from views.video_detection import video_detection
