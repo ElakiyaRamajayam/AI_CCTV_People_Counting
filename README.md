@@ -234,7 +234,7 @@ Add dashboard screenshot here.
 
 ### Image Detection
 
-Add image detection screenshot here.
+![Image_Detection](assets/Image_Detection.png)
 
 ### Video Detection
 
